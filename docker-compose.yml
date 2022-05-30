@@ -1,0 +1,13 @@
+version: "3"
+services:
+  datascience-notebook:
+      build: .
+      environment:
+        - JUPYTER_TOKEN=123456
+      volumes:
+        - ./src:/home/jovyan
+        - /Users/80448/kongdev/excel_content:/home/jovyan/excel_content
+      ports:
+        - 8888:8888
+      container_name: py-container
+      command: jupyter notebook --NotebookApp.iopub_data_rate_limit=10e10
